@@ -1,0 +1,118 @@
+@import 'colors/colors.css';
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", "monospace";
+    font-size: 14px;
+    font-weight: 600;
+    min-height: 0;
+    color:@surface_container_highest ;
+}
+
+window#waybar {
+    background: transparent;
+    /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
+}
+
+tooltip {
+    background: rgba(43, 48, 59, 0.5);
+    border: 1px solid rgba(100, 114, 125, 0.5);
+}
+
+tooltip label {
+    color: white;
+} 
+
+#workspaces {
+    margin-top: 8px;
+}
+
+#workspaces button {
+    padding: 0.3rem 0.6rem;
+    margin: 0.4rem 0.25rem;
+    border-radius: 6px;
+    background-color: @primary;
+    
+}
+
+ #workspaces button:hover {
+  color: #1e1e2e;
+} 
+
+#workspaces button.active {
+  background-color: #1e1e2e;
+  padding:0 15px;
+  color: #89b4fa;
+}
+
+
+#mode,
+#clock {
+    padding: 0 10px;
+}
+
+#mode {
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+
+#clock {
+    background-color: @primary;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+@keyframes blink {
+    to {
+        background-color: @primary;
+        color: black;
+    }
+}
+
+#window {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 5px;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+}
+
+#network,
+#custom-power,
+#pulseaudio,
+#cpu,
+#memory,
+#custom-powered,
+#tray,
+#custom-notification,#custom-spotify{
+    padding: 0 10px;
+    background-color: @primary;
+    margin: 0 10px;
+    color: black;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+#mpris {
+  padding: 0.3rem 0.6rem;
+  margin-top:10px;
+  border-radius: 6px;
+  /* background-color: #181825; */
+  background-color: #1e1e2e;
+}
+
+#mpris.playing {
+  color: #a6e3a1;
+}
+
+#mpris.paused {
+  color: #9399b2;
+}
+
+tooltip {
+    background-color: #181825;
+    border: 2px solid #89b4fa;
+}
