@@ -10,6 +10,7 @@
 ```
 
 **A desktop environment that doesn't compromise. Ever.**
+<br>
 **Microslop && NVIDIA F*k u**
 
 <br>
