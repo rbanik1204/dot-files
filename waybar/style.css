@@ -48,7 +48,7 @@ tooltip label {
 
 
 #mode,
-#clock {
+#clock,#clock.simpleclock {
     padding: 0 10px;
 }
 
@@ -57,13 +57,29 @@ tooltip label {
     border-bottom: 3px solid white;
 }
 
-#clock {
+#clock,#clock.simpleclock{
     background-color: @primary;
     border-radius: 10px;
     margin-top: 5px;
     margin-left: 5px;
 }
 
+#mpris {
+  padding: 0.3rem 0.6rem;
+  margin-top:5px;
+  margin-left:5px;
+  border-radius: 6px;
+  /* background-color: #181825; */
+  background-color:@primary
+}
+
+#mpris.playing {
+  color: #739395;
+}
+
+#mpris.paused {
+  color: #2d45a2;
+}
 @keyframes blink {
     to {
         background-color: @primary;
@@ -75,6 +91,7 @@ tooltip label {
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 5px;
+    color:black;
 }
 
 window#waybar.empty #window {
@@ -88,7 +105,7 @@ window#waybar.empty #window {
 #memory,
 #custom-powered,
 #tray,
-#custom-notification,#custom-spotify{
+#custom-notification{
     padding: 0 10px;
     background-color: @primary;
     margin: 0 10px;
@@ -96,21 +113,7 @@ window#waybar.empty #window {
     border-radius: 10px;
     margin-top: 5px;
 }
-#mpris {
-  padding: 0.3rem 0.6rem;
-  margin-top:10px;
-  border-radius: 6px;
-  /* background-color: #181825; */
-  background-color: #1e1e2e;
-}
 
-#mpris.playing {
-  color: #a6e3a1;
-}
-
-#mpris.paused {
-  color: #9399b2;
-}
 
 tooltip {
     background-color: #181825;

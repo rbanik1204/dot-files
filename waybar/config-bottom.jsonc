@@ -1,0 +1,18 @@
+{
+    "name": "bottom",
+    "layer": "top",
+    "position": "bottom",
+    "height": 40,
+    "modules-center": [
+        "custom/spotify"
+    ],
+    "custom/spotify": {
+        "exec": "playerctl status 2>/dev/null | grep -q Playing && playerctl metadata --format ' {{artist}} - {{title}}' || playerctl status 2>/dev/null | grep -q Paused && echo '󰏤 Paused' || echo ''",
+        "interval": 2,
+        "on-click": "playerctl play-pause || spotify",
+        "on-click-right": "playerctl next",
+        "on-click-middle": "playerctl previous",
+        "tooltip": false,
+        "width":300
+    }
+}
