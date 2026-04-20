@@ -1,0 +1,17 @@
+# Browsers
+chromium/
+google-chrome/
+
+# Apps with user data
+spotify/
+VSCodium/
+yay/
+go/
+
+# Random desktop apps
+YouTube Music Desktop App/
+YouTube Music for Desktop/
+
+# Cache / temp
+*.cache
+*.log
