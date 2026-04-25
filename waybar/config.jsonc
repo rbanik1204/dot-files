@@ -1,0 +1,220 @@
+{
+    "layer": "top",
+    "height": 36,
+    "spacing": 2,
+    "modules-left": [
+        "clock",
+        "clock#simpleclock",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "custom/network",
+        "network",
+        "bluetooth",
+        "battery",
+        "tray",
+        "pulseaudio",
+        "custom/notification",
+        "custom/powered"
+    ],
+    // ─── Clock ────────────────────────────────────────────────────────────────
+    "clock#simpleclock": {
+        "tooltip": false,
+        "format": " {:%H:%M}"
+    },
+    "clock": {
+        "format": " {:L%a %d %b}",
+        "calendar": {
+            "format": {
+                "days": "<span weight='normal'>{}</span>",
+                "months": "<span color='#cdd6f4'><b>{}</b></span>",
+                "today": "<span color='#f38ba8' weight='700'><u>{}</u></span>",
+                "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+                "weeks": "<span color='#a6e3a1'><b>W{}</b></span>"
+            },
+            "mode": "month",
+            "mode-mon-col": 1,
+            "on-scroll": 1
+        },
+        "tooltip-format": "<span color='#cdd6f4' font='JetBrainsMono Nerd Font 13'><tt><small>{calendar}</small></tt></span>"
+    },
+    // ─── Workspaces & Window ──────────────────────────────────────────────────
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "format": "{id}",
+        "all-outputs": false,
+        "disable-scroll": false,
+        "active-only": true
+    },
+    "hyprland/window": {
+        "format": " {title}",
+        "separate-outputs": true,
+        "max-length": 60,
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "  $1",
+            "(.*) - Visual Studio Code": "󰨞 $1",
+            "(.*)Thunar(.*)": "󰝰 Files"
+        }
+    },
+    // ─── System Resources ─────────────────────────────────────────────────────
+    "cpu": {
+        "format": "󰻠 {usage}%",
+        "tooltip": true,
+        "interval": 2,
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+    "memory": {
+        "format": "󰍛 {used:0.1f}G",
+        "tooltip-format": "{used:0.1f}G / {total:0.1f}G used\n{swapUsed:0.1f}G swap"
+    },
+    // ─── Network (Wi-Fi) ──────────────────────────────────────────────────────
+    // Built-in waybar network module — shows only on laptops/devices with Wi-Fi.
+    // On a desktop with only Ethernet it will be hidden via CSS (see note below).
+    // Your existing custom/network script still handles toggle/status display.
+    "network": {
+        "interface": "wl*",
+        "interval": 5,
+        "format-wifi": "󰤨 {signalStrength}%",
+        "format-ethernet": "󰊗 {ifname}",
+        "format-disconnected": "󰤭 offline",
+        "format-linked": "󰈀 {ifname}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}\n↑ {bandwidthUpBytes}  ↓ {bandwidthDownBytes}",
+        "tooltip-format-ethernet": "Ethernet: {ipaddr}",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "nm-connection-editor"
+    },
+    // ─── Bluetooth ────────────────────────────────────────────────────────────
+    // Hidden automatically when bluetooth adapter is absent or powered off.
+    "bluetooth": {
+        "format": "󰂯",
+        "format-connected": "󰂱 {num_connections}",
+        "format-disabled": "", // empty = hidden when adapter is off
+        "format-off": "", // empty = hidden when BT is off
+        "tooltip-format": "Bluetooth: {status}",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": " {device_alias}\t{device_address}",
+        "on-click": "blueman-manager"
+    },
+    // ─── Battery ──────────────────────────────────────────────────────────────
+    // Waybar hides this module automatically when no battery is found (desktop).
+    // No extra config needed for PC fallback — it just won't appear.
+    "battery": {
+        "interval": 30,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-full": "󰁹 {capacity}%",
+        "format-icons": [
+            "󰁺", // 0–10 %
+            "󰁻", // 10–20 %
+            "󰁼", // 20–30 %
+            "󰁽", // 30–40 %
+            "󰁾", // 40–50 %
+            "󰁿", // 50–60 %
+            "󰂀", // 60–70 %
+            "󰂁", // 70–80 %
+            "󰂂", // 80–90 %
+            "󰁹" // 90–100 %
+        ],
+        "tooltip-format": "{timeTo}\nCycles: {cycles}",
+        "tooltip-format-charging": "Charging — {timeTo}",
+        "tooltip-format-plugged": "Plugged in (full)"
+    },
+    // ─── Tray ─────────────────────────────────────────────────────────────────
+    "tray": {
+        "show-passive-items": true,
+        "spacing": 4,
+        "icon-size": 18,
+        "icon-theme": "Papirus-Dark",
+        "smooth-scrolling-threshold": 5,
+        "reverse-direction": false
+    },
+    // ─── Audio ────────────────────────────────────────────────────────────────
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% 󰋎 ", // headset icon when BT connected
+        "format-bluetooth-muted": "󰋎 ", // muted BT
+        "format-muted": "",
+        "format-icons": {
+            "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
+            "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": " ",
+            "headphone": "󰋋 ",
+            "hands-free": "󰋎 ",
+            "headset": "󰋎 ",
+            "phone": " ",
+            "phone-muted": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [
+                " ",
+                " "
+            ]
+        },
+        "scroll-step": 1,
+        "on-click": "pavucontrol",
+        "on-click-right": "kitty --title cava cava",
+        "ignored-sinks": [
+            "Easy Effects Sink"
+        ]
+    },
+    // ─── Custom Modules ───────────────────────────────────────────────────────
+    "custom/network": {
+        "exec": "~/.config/waybar/scripts/network.sh",
+        "return-type": "json",
+        "interval": 1,
+        "format": "{}",
+        "tooltip": true,
+        "on-click": "~/.config/waybar/scripts/network.sh toggle && pkill -RTMIN+9 waybar && networkmanager_dmenu && kitty --title nmtui nmtui",
+        "signal": 9
+    },
+    "custom/notification": {
+        "exec": "swaync-client -swb",
+        "return-type": "json",
+        "format": "{icon}",
+        "format-icons": {
+            "none": "󰂚",
+            "notification": "󰂜",
+            "dnd-none": "󰂛",
+            "dnd-notification": "󰂛"
+        },
+        "on-click": "sleep 0.1 && swaync-client -t -sw",
+        "tooltip": false
+    },
+    "custom/powered": {
+        "tooltip": false,
+        "on-click": "wlogout -p layer-shell &",
+        "format": "⏻"
+    }
+    // ─── Notes ────────────────────────────────────────────────────────────────
+    // BATTERY:  Waybar automatically skips this module when /sys/class/power_supply
+    //           reports no battery. Zero config needed for PC fallback.
+    //
+    // BLUETOOTH: Hidden via format-off / format-disabled = "" when adapter is
+    //            absent or rfkill-blocked. For hard-absent adapters (no BT chip),
+    //            waybar will emit a console warning but won't crash; add
+    //            `"css-class": "hidden"` and a matching `.hidden { display:none }`
+    //            rule in style.css if you want zero visual impact.
+    //
+    // NETWORK (Wi-Fi): The "interface": "wl*" glob means it only tracks wireless.
+    //            format-ethernet / format-disconnected are set to "" so on a pure
+    //            desktop the widget renders empty. Pair with this style.css snippet
+    //            to fully collapse it:
+    //
+    //              #network:empty { min-width: 0; padding: 0; margin: 0; }
+    //
+    //            That way the Wi-Fi widget exists in the config but is completely
+    //            invisible on desktop, and visible on laptops with Wi-Fi.
+}

@@ -1,0 +1,284 @@
+@import 'colors/colors.css';
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", "monospace";
+    font-size: 14px;
+    font-weight: 600;
+    min-height: 0;
+    color: @on_surface;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+tooltip {
+    background: @surface_container;
+    border: 1px solid @outline_variant;
+}
+
+tooltip label {
+    color: @on_surface;
+}
+
+#workspaces {
+    margin-top: 8px;
+}
+
+#workspaces button {
+    padding: 0.3rem 0.6rem;
+    margin: 0.4rem 0.25rem;
+    border-radius: 6px;
+    background-color: @surface_container_high;
+    color: @on_surface_variant;
+}
+
+#workspaces button:hover {
+    background-color: @surface_container_highest;
+    color: @on_surface;
+}
+
+#workspaces button.active {
+    background-color: @primary_container;
+    padding: 0 15px;
+    color: @on_primary_container;
+}
+
+#mode,
+#clock,
+#clock.simpleclock {
+    padding: 0 10px;
+}
+
+#mode {
+    background: @surface_container_high;
+    border-bottom: 3px solid @outline;
+}
+
+#clock,
+#clock.simpleclock {
+    background-color: @surface_container;
+    border: 1px solid @outline_variant;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-left: 5px;
+    color: @primary;
+}
+
+#mpris {
+    padding: 0.3rem 0.6rem;
+    margin-top: 5px;
+    margin-left: 5px;
+    border-radius: 6px;
+    background-color: @surface_container;
+    border: 1px solid @outline_variant;
+    color: @on_surface;
+}
+
+#mpris.playing {
+    color: @tertiary;
+}
+
+#mpris.paused {
+    color: @outline;
+}
+
+#window {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 5px;
+    color: @on_surface_variant;
+    font-style: italic;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+}
+
+#custom-notification {
+    padding: 0 10px;
+    background-color: @surface_container;
+    border: 1px solid @outline_variant;
+    margin: 0 10px;
+    color: @tertiary;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+#tray {
+    padding: 0 10px;
+    background-color: @surface_container;
+    border: 1px solid @outline_variant;
+    margin: 0 10px;            /* matches all other modules */
+    margin-top: 5px;           /* matches all other modules */
+    border-radius: 10px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: none;    /* was dim+0.6 — was hiding Noise Airwave */
+    opacity: 0.9;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @error_container;
+    border-color: @error;
+    border-radius: 8px;
+    padding: 0 4px;
+}
+#custom-powered {
+    padding: 0 10px;
+    background-color: @error_container;
+    border: 1px solid @error_container;
+    margin: 0 10px;
+    color: @error;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+#memory {
+    padding: 0 10px;
+    background-color: @surface_container;
+    border: 1px solid @outline_variant;
+    margin: 0 10px;
+    color: @secondary;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+#cpu {
+    padding: 0 10px;
+    background-color: @surface_container;
+    border: 1px solid @outline_variant;
+    margin: 0 10px;
+    color: @tertiary;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+#cpu.warning {
+    color: @error;
+}
+
+#cpu.critical {
+    color: @on_error_container;
+    background-color: @error_container;
+    border-color: @error_container;
+}
+
+#pulseaudio {
+    padding: 0 10px;
+    background-color: @surface_container;
+    border: 1px solid @outline_variant;
+    margin: 0 10px;
+    color: @on_surface;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+#pulseaudio.muted {
+    color: @outline;
+}
+
+#custom-network {
+    padding: 0 10px;
+    background-color: @surface_container;
+    border: 1px solid @outline_variant;
+    margin: 0 10px;
+    color: @on_surface;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+#custom-network.wifi {
+    color: @primary;
+}
+
+#custom-network.ethernet {
+    color: @on_surface;
+}
+
+#custom-network.vpn {
+    color: @tertiary;
+}
+
+#custom-network.disconnected {
+    color: @error;
+}
+
+/* ── Built-in network module (Wi-Fi signal from config.jsonc "network" block) ── */
+#network {
+    padding: 0 10px;
+    background-color: @surface_container;
+    border: 1px solid @outline_variant;
+    margin: 0 10px;
+    color: @primary;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+
+/* ── Bluetooth ────────────────────────────────────────────────────────────── */
+#bluetooth {
+    padding: 0 10px;
+    background-color: @surface_container;
+    border: 1px solid @outline_variant;
+    margin: 0 10px;
+    color: @secondary;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+#bluetooth.connected {
+    color: @primary;
+}
+
+#bluetooth.disabled,
+#bluetooth.off {
+    /* Hidden via format: "" in config — these rules are a safety net */
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+}
+
+/* ── Battery ─────────────────────────────────────────────────────────────── */
+#battery {
+    padding: 0 10px;
+    background-color: @surface_container;
+    border: 1px solid @outline_variant;
+    margin: 0 10px;
+    color: @on_surface;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+#battery.good {
+    color: @primary;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @secondary;
+}
+
+#battery.warning {
+    color: @error;
+}
+
+#battery.critical {
+    color: @on_error_container;
+    background-color: @error_container;
+    border-color: @error_container;
+    /* Pulse animation to draw attention on critically low battery */
+    animation: battery-critical-pulse 1s ease-in-out infinite;
+}
+
+@keyframes battery-critical-pulse {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.5; }
+    100% { opacity: 1; }
+}

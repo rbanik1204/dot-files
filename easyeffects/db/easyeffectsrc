@@ -1,0 +1,12 @@
+[StreamInputs]
+inputDevice=bluez_input.41:42:2F:0A:FB:F6
+
+[StreamOutputs]
+outputDevice=bluez_output.41_42_2F_0A_FB_F6.1
+plugins=autogain#0,bass_loudness#0
+visiblePage=pluginsPage
+visiblePlugin=autogain#0
+
+[Window]
+height=990
+width=946

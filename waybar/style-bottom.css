@@ -1,0 +1,118 @@
+@import "colors/colors.css";
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", monospace;
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 0;
+    color: @on_surface;
+}
+
+window#waybar.bottom {
+    background: transparent;
+}
+
+/* ── Taskbar ── */
+
+#taskbar {
+    margin: 5px 4px 5px 8px;
+    background: @surface_container;
+    border: 1px solid @outline_variant;
+    border-radius: 10px;
+    padding: 0 4px;
+}
+
+#taskbar button {
+    padding: 2px 6px;
+    margin: 2px;
+    border-radius: 6px;
+    background: transparent;
+    color: @on_surface_variant;
+    min-width: 24px;
+}
+
+#taskbar button:hover {
+    background: @surface_container_high;
+    color: @on_surface;
+}
+
+#taskbar button.active {
+    background: @primary_container;
+    color: @on_primary_container;
+}
+
+/* ── Window title ── */
+
+#window.bottom {
+    padding: 0 14px;
+    margin: 5px 4px;
+    border-radius: 10px;
+    background: @surface_container;
+    border: 1px solid @outline_variant;
+    color: @primary;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* ── Spotify (center) ── */
+
+#custom-spotify {
+    padding: 0.3rem 0.6rem;
+    margin-top: 5px;
+    margin-left: 5px;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    background: @primary_container;
+    border: 1px solid @outline_variant;
+    color: @on_primary_container;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+/* ── Right modules ── */
+
+#custom-weather {
+    padding: 0 12px;
+    margin: 5px 4px;
+    border-radius: 10px;
+    background: @surface_container;
+    border: 1px solid @outline_variant;
+    color: @tertiary;
+    font-size: 13px;
+}
+
+#temperature {
+    padding: 0 12px;
+    margin: 5px 4px;
+    border-radius: 10px;
+    background: @surface_container;
+    border: 1px solid @outline_variant;
+    color: @secondary;
+}
+
+#temperature.critical {
+    color: @on_error_container;
+    background: @error_container;
+    border-color: @error_container;
+}
+
+#custom-disk {
+    padding: 0 12px;
+    margin: 5px 8px 5px 4px;
+    border-radius: 10px;
+    background: @surface_container;
+    border: 1px solid @outline_variant;
+    color: @on_surface_variant;
+}
+#backlight {
+    padding: 0 12px;
+    margin: 5px 4px;
+    border-radius: 10px;
+    background: @surface_container;
+    border: 1px solid @outline_variant;
+    color: @primary;
+}

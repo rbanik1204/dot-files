@@ -1,0 +1,81 @@
+{
+    "name": "bottom",
+    "layer": "top",
+    "position": "bottom",
+    "height": 40,
+    "modules-left": [
+        "wlr/taskbar",
+        "hyprland/window#bottom"
+    ],
+    "modules-center": [
+        "custom/spotify"
+    ],
+    "modules-right": [
+        "custom/weather",
+        "temperature",
+        "backlight",
+        "custom/disk"
+    ],
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 16,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-right": "close",
+        "sort-by-app-id": true
+    },
+    "hyprland/window#bottom": {
+        "format": "󰣇  {title}",
+        "separate-outputs": true,
+        "max-length": 50,
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "  $1",
+            "(.*) - VSCodium": "󰨞 $1",
+            "(.*) - Visual Studio Code": "󰨞 $1",
+            "(.*)Thunar(.*)": "󰝰 Files",
+            "(.*)Spotify(.*)": "󰓇 Spotify"
+        }
+    },
+    "custom/spotify": {
+        "exec": "playerctl status 2>/dev/null | grep -q Playing && playerctl metadata --format ' {{artist}} - {{title}}' || playerctl status 2>/dev/null | grep -q Paused && echo '󰏤 Paused' || echo ''",
+        "interval": 2,
+        "on-click": "playerctl play-pause || spotify",
+        "on-click-right": "playerctl next",
+        "on-click-middle": "playerctl previous",
+        "tooltip": false
+    },
+    "custom/weather": {
+        "exec": "curl -sf --max-time 3 'https://wttr.in/?format=%t+%C' 2>/dev/null | awk '{print \"󰖩 \" $0}' || echo '󰖩 --'",
+        "interval": 1800,
+        "tooltip": false
+    },
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+        "critical-threshold": 80,
+        "interval": 5,
+        "format": "󰏈 {temperatureC}°C",
+        "format-critical": "󰏈 {temperatureC}°C",
+        "tooltip": false
+    },
+    // ─── Brightness ───────────────────────────────────────────────────────────
+    // scroll-up/down OR two-finger swipe up/down on trackpad changes brightness.
+    // Uses `brightnessctl` — works on both laptop (backlight) and desktop (DDC).
+    // On desktop with no backlight, the module hides automatically.
+    "backlight": {
+        "interval": 2,
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "tooltip-format": "Brightness: {percent}%",
+        "on-scroll-up":   "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "smooth-scrolling-threshold": 1
+    },
+    "custom/disk": {
+        "exec": "~/.config/waybar/scripts/disk.sh",
+        "return-type": "json",
+        "interval": 30,
+        "on-click": "~/.config/waybar/scripts/disk.sh click && pkill -RTMIN+8 waybar",
+        "signal": 8,
+        "format": "{}"
+    }
+}
