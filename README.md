@@ -1,3 +1,11 @@
+```
+                  _              _                __    
+__ __ ____ _ _  _| |__ _ _ _  __| |  __ ___ _ _  / _|___
+\ V  V / _` | || | / _` | ' \/ _` | / _/ _ \ ' \|  _(_-<
+ \_/\_/\__,_|\_, |_\__,_|_||_\__,_|_\__\___/_||_|_| /__/
+             |__/                |___|                  
+```
+
 # wayland_confs — `hyprland_lp` branch
 
 Personal Wayland desktop dotfiles for a **Hyprland** setup on Arch Linux, laptop variant (`lp` = laptop). Config lives directly under `~/.config`, so the layout of this repo mirrors that directory 1:1 — clone or symlink it into place.
@@ -53,6 +61,22 @@ See `hypr/hyprland.conf` for the full list, including brightness, volume, and wi
 ## Notification center (swaync)
 
 The `swaync/scripts` directory implements a set of paired `*-status.sh` / `*-toggle.sh` scripts that back Waybar/swaync quick-settings toggles for Wi-Fi, Bluetooth, airplane mode, microphone mute, nightlight, powersaver mode, touchpad, keyboard backlight, and screen recording — each polling live system state rather than assuming a static icon.
+
+## Screenshots
+
+```
+┌──────────────────────────────────────────┐
+│  ▄▄▄  ▄▄▄  ▄ ▄▄  ▄▄▄     ▄▄▄  ▄▄▄  ▄▄  ▄▄ │
+│ █   █ █ █ █ █ █ █   █   █   █ █ █ █▀▀█   │
+│ █▄▄▄▀ ▀▄█  █ █ █ █▄▄▄   █▄▄▄▀ █ █ █  █▄▄ │
+└──────────────────────────────────────────┘
+```
+
+![Notification center with matugen theming, quick toggles, lyrics panel, and media controls](./screenshots/notification-center.png)
+
+*swaync notification center — quick-settings grid, volume/brightness sliders, MPRIS media card with synced lyrics, and matugen-generated coloring pulled from the current wallpaper.*
+
+> Add your own screenshots to a `screenshots/` folder at the repo root (e.g. `screenshots/notification-center.png`, `screenshots/waybar.png`, `screenshots/rofi.png`) and reference them here — GitHub renders them inline on the repo page.
 
 ## Requirements
 
