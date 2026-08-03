@@ -1,0 +1,170 @@
+{
+    "$schema": "/etc/xdg/swaync/configSchema.json",
+    "control-center-height": 650,
+    "control-center-layer": "top",
+    "control-center-margin-bottom": 8,
+    "control-center-margin-left": 0,
+    "control-center-margin-right": 8,
+    "control-center-margin-top": 8,
+    "control-center-width": 400,
+    "cssPriority": "user",
+    "hide-on-action": false,
+    "hide-on-clear": false,
+    "image-visibility": "when-available",
+    "keyboard-shortcuts": true,
+    "layer": "overlay",
+    "layer-shell": true,
+    "notification-2fa-action": true,
+    "notification-window-width": 380,
+    "positionX": "right",
+    "positionY": "top",
+    "script-fail-notify": true,
+    "transition-time": 200,
+    "widget-config": {
+        "title": {
+            "text": "Notifications",
+            "clear-all-button": true,
+            "button-text": "Clear"
+        },
+        "dnd": {
+            "text": "Do Not Disturb"
+        },
+        "label": {
+            "max-lines": 5,
+            "text": "Control Center"
+        },
+        "mpris": {
+            "image-size": 56,
+            "image-radius": 10,
+            "blur": false
+        },
+        "volume": {
+            "label": true,
+            "show-per-app": false
+        },
+        "backlight": {
+            "subsystem": "backlight",
+            "device": "amdgpu_bl2",
+            "label": true
+        },
+        "notifications": {
+            "max-count": 5
+        },
+        "buttons-grid": {
+            "buttons-per-row": 6,
+            "actions": [
+                {
+                    "type": "toggle",
+                    "command": "~/.config/swaync/scripts/wifi-toggle.sh",
+                    "label": "󰤨",
+                    "update-command": "~/.config/swaync/scripts/wifi-status.sh"
+                },
+                {
+                    "type": "toggle",
+                    "command": "~/.config/swaync/scripts/bluetooth-toggle.sh",
+                    "label": "󰂯",
+                    "update-command": "~/.config/swaync/scripts/bluetooth-status.sh"
+                },
+                {
+                    "type": "toggle",
+                    "command": "~/.config/swaync/scripts/airplane-toggle.sh",
+                    "label": "󰀝",
+                    "update-command": "~/.config/swaync/scripts/airplane-status.sh"
+                },
+                {
+                    "type": "toggle",
+                    "command": "~/.config/swaync/scripts/mic-toggle.sh",
+                    "label": "󰍭",
+                    "update-command": "~/.config/swaync/scripts/mic-status.sh"
+                },
+                {
+                    "type": "toggle",
+                    "command": "~/.config/swaync/scripts/nightlight-toggle.sh",
+                    "label": "󰛨",
+                    "update-command": "~/.config/swaync/scripts/nightlight-status.sh"
+                },
+                {
+                    "type": "toggle",
+                    "command": "~/.config/swaync/scripts/performance-toggle.sh",
+                    "label": "󰓅",
+                    "update-command": "~/.config/swaync/scripts/performance-status.sh"
+                },
+                {
+                    "type": "toggle",
+                    "command": "~/.config/swaync/scripts/powersaver-toggle.sh",
+                    "label": "󰾆",
+                    "update-command": "~/.config/swaync/scripts/powersaver-status.sh"
+                },
+                {
+                    "type": "toggle",
+                    "command": "~/.config/swaync/scripts/touchpad-toggle.sh",
+                    "label": "\uf245",
+                    "update-command": "~/.config/swaync/scripts/touchpad-status.sh"
+                },
+                {
+                    "type": "toggle",
+                    "command": "~/.config/swaync/scripts/kb-backlight-toggle.sh",
+                    "label": "󰥻",
+                    "update-command": "~/.config/swaync/scripts/kb-backlight-status.sh"
+                },
+                {
+                    "type": "toggle",
+                    "command": "~/.config/swaync/scripts/screenrecord-toggle.sh",
+                    "label": "󰑋",
+                    "update-command": "~/.config/swaync/scripts/screenrecord-status.sh"
+                },
+                {
+                    "type": "normal",
+                    "command": "~/.config/swaync/scripts/clipboard-launch.sh",
+                    "label": "󰅍"
+                },
+                {
+                    "type": "normal",
+                    "command": "grim -g \"$(slurp)\" ~/Pictures/Screenshot_$(date +%s).png",
+                    "label": "󰹑"
+                },
+                {
+                    "type": "toggle",
+                    "command": "true",
+                    "label": "󰬀",
+                    "update-command": "~/.config/swaync/scripts/capslock-status.sh"
+                },
+                {
+                    "type": "toggle",
+                    "command": "true",
+                    "label": "󰎠",
+                    "update-command": "~/.config/swaync/scripts/numlock-status.sh"
+                },
+                {
+                    "type": "normal",
+                    "command": "hyprlock",
+                    "label": "󰌾"
+                },
+                {
+                    "type": "normal",
+                    "command": "systemctl suspend",
+                    "label": "󰤄"
+                },
+                {
+                    "type": "normal",
+                    "command": "systemctl reboot",
+                    "label": "󰜉"
+                },
+                {
+                    "type": "normal",
+                    "command": "hyprctl dispatch exit",
+                    "label": "󰐥"
+                }
+            ]
+        }
+    },
+    "widgets": [
+        "title",
+        "dnd",
+        "buttons-grid",
+        "volume",
+        "backlight",
+        "mpris",
+        "notifications"
+    ]
+}

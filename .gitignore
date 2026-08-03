@@ -1,0 +1,61 @@
+# =========================
+# Quickshell (separate repo)
+# =========================
+quickshell/
+quickshell_bak/
+
+# =========================
+# VS Code / VSCodium
+# =========================
+Code/
+VSCodium/
+.vscode/
+
+# =========================
+# Browser & Applications
+# =========================
+google-chrome/
+spotify/
+libreoffice/
+pgadmin/
+pgadmin4/
+QtProject.conf
+Claude/
+
+# =========================
+# Development
+# =========================
+go/
+nvim/
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+
+# =========================
+# Temporary & Backup
+# =========================
+*.bak
+*.tmp
+*.temp
+*~
+.cache/
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Generated files
+# =========================
+waybar/scripts/system-monitor/**/__pycache__/
+menus/applications-merged/
+
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db

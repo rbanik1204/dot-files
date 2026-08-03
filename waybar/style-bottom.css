@@ -9,11 +9,10 @@
     min-height: 0;
     color: @on_surface;
 }
-
 window#waybar.bottom {
     background: transparent;
+    background-color: transparent;
 }
-
 /* ── Taskbar ── */
 
 #taskbar {
@@ -30,89 +29,285 @@ window#waybar.bottom {
     border-radius: 6px;
     background: transparent;
     color: @on_surface_variant;
-    min-width: 24px;
+    min-width: 0;
+    transition: all 0.2s ease;
 }
 
 #taskbar button:hover {
-    background: @surface_container_high;
+    background: @surface_container_highest;
     color: @on_surface;
 }
 
 #taskbar button.active {
     background: @primary_container;
     color: @on_primary_container;
+    border-bottom: 2px solid @primary;
+}
+
+#taskbar button.minimized {
+    opacity: 0.5;
 }
 
 /* ── Window title ── */
-
 #window.bottom {
     padding: 0 14px;
     margin: 5px 4px;
     border-radius: 10px;
-    background: @surface_container;
-    border: 1px solid @outline_variant;
-    color: @primary;
+    background: @primary_container;    /* was @surface_container */
+    border: 1px solid @primary;
+    color: @on_primary_container;      /* was @primary */
     font-style: italic;
     font-size: 12px;
     font-weight: 500;
 }
-
 /* ── Spotify (center) ── */
 
 #custom-spotify {
-    padding: 0.3rem 0.6rem;
-    margin-top: 5px;
-    margin-left: 5px;
-    border-radius: 6px;
-    margin-bottom: 5px;
-    background: @primary_container;
-    border: 1px solid @outline_variant;
-    color: @on_primary_container;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.03em;
+    padding: 0 12px;
+    margin: 5px 4px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    font-style: italic;
+    transition: all 0.3s ease;
 }
 
-/* ── Right modules ── */
+#custom-spotify.paused {
+    color: @outline;
+    background: @surface_container;
+    border-color: @outline_variant;
+}
 
-#custom-weather {
-    padding: 0 12px;
+#custom-spotify.stopped {
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+}
+
+#custom-spotify.spotify {
+    color: @on_primary_container;
+    background: @primary_container;
+    border-color: @primary;
+}
+
+#custom-spotify.youtube {
+    color: @on_error_container;
+    background: @error_container;
+    border-color: @error;
+}
+
+#custom-spotify.music {
+    color: @on_tertiary_container;
+    background: @tertiary_container;
+    border-color: @tertiary;
+}
+
+/* ── Right modules (shared base) ── */
+
+
+#temperature,
+#backlight,
+#custom-disk {
+    padding: 0 10px;
     margin: 5px 4px;
     border-radius: 10px;
     background: @surface_container;
     border: 1px solid @outline_variant;
-    color: @tertiary;
-    font-size: 13px;
+}
+
+/* ── Individual colors ── */
+
+#custom-weather {
+    padding: 0 10px;
+    margin: 5px 4px;
+    background: @tertiary_container;   /* was @surface_container */
+    color: @on_tertiary_container;     /* was @tertiary */
+    border: 1px solid @tertiary;
+    border-radius:10px;
+    margin-right: 4px;
 }
 
 #temperature {
-    padding: 0 12px;
-    margin: 5px 4px;
-    border-radius: 10px;
-    background: @surface_container;
-    border: 1px solid @outline_variant;
     color: @secondary;
 }
 
 #temperature.critical {
     color: @on_error_container;
     background: @error_container;
-    border-color: @error_container;
+    border-color: @error;
+    animation: temp-pulse 1s ease-in-out infinite;
+}
+
+#backlight {
+    color: @tertiary;
 }
 
 #custom-disk {
-    padding: 0 12px;
-    margin: 5px 8px 5px 4px;
-    border-radius: 10px;
-    background: @surface_container;
-    border: 1px solid @outline_variant;
-    color: @on_surface_variant;
+    color: @primary;
+    margin-right: 8px;
 }
-#backlight {
+
+@keyframes temp-pulse {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+#custom-visualizer {
     padding: 0 12px;
     margin: 5px 4px;
     border-radius: 10px;
-    background: @surface_container;
+    background: @primary_container;
+    border: 1px solid @primary;
+    color: @on_primary_container;
+    font-size: 14px;
+    letter-spacing: 3px;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    min-width: 110px ;   /* force enough room for all 10 bars */
+}
+/* ============================================================================
+   ADDITIVE CSS SNIPPET — append to your existing style.css (and/or
+   style-bottom.css if these modules go in the bottom bar). Do NOT replace
+   your existing stylesheet. These classes only exist for the new modules
+   and reuse whatever Matugen @color-* variables your colors.css already
+   defines, so they stay theme-consistent automatically.
+   ============================================================================ */
+/* ── New hardware modules ── */
+
+#custom-nvidia {
+    padding: 0 10px;
+    margin: 5px 4px;
+    border-radius: 10px;
+    background: @primary_container;
+    color: @on_primary_container;
+    border: 1px solid @primary;
+}
+
+#custom-amd-gpu {
+    padding: 0 10px;
+    margin: 5px 4px;
+    border-radius: 10px;
+    background: @secondary_container;
+    color: @on_secondary_container;
+    border: 1px solid @secondary;
+}
+
+#custom-fan {
+    padding: 0 10px;
+    margin: 5px 4px;
+    border-radius: 10px;
+    background: @surface_container_high;
+    color: @on_surface_variant;
     border: 1px solid @outline_variant;
-    color: @primary;
+}
+
+#custom-power-profile {
+    padding: 0 10px;
+    margin: 5px 4px;
+    border-radius: 10px;
+    background: @surface_container;
+    color: @on_surface;
+    border: 1px solid @outline_variant;
+    transition: all 0.2s ease;
+}
+
+#custom-updates {
+    padding: 0 10px;
+    margin: 5px 4px;
+    border-radius: 10px;
+    background: @surface_container;
+    color: @on_surface;
+    border: 1px solid @outline_variant;
+    transition: all 0.2s ease;
+}
+
+#custom-vpn {
+    padding: 0 10px;
+    margin: 5px 4px;
+    border-radius: 10px;
+    background: @tertiary_container;
+    color: @on_tertiary_container;
+    border: 1px solid @tertiary;
+}
+
+#custom-system-overview {
+    padding: 0 10px;
+    margin: 5px 4px;
+    border-radius: 10px;
+    background: @primary_container;
+    color: @on_primary_container;
+    border: 1px solid @primary;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+/* --- hover feedback, only on modules that actually have an on-click --- */
+#custom-power-profile:hover,
+#custom-updates:hover,
+#custom-system-overview:hover {
+    background: @surface_container_highest;
+    border-color: @primary;
+}
+
+/* --- shared status states --- */
+#custom-nvidia.warning,
+#custom-amd-gpu.warning {
+    color: @tertiary;
+}
+
+#custom-nvidia.critical,
+#custom-amd-gpu.critical {
+    color: @on_error_container;
+    background: @error_container;
+    border-color: @error;
+    font-weight: bold;
+}
+
+#custom-nvidia.disabled,
+#custom-amd-gpu.disabled,
+#custom-power-profile.disabled,
+#custom-fan.disabled,
+#custom-updates.disabled {
+    color: alpha(@on_surface, 0.4);
+    background: @surface_container;
+    border-color: @outline_variant;
+}
+
+/* --- power profile: tint by active profile --- */
+#custom-power-profile.performance {
+    color: @on_error_container;
+    background: @error_container;
+    border-color: @error;
+}
+
+#custom-power-profile.balanced {
+    color: @on_primary_container;
+    background: @primary_container;
+    border-color: @primary;
+}
+
+#custom-power-profile.power-saver {
+    color: @on_tertiary_container;
+    background: @tertiary_container;
+    border-color: @tertiary;
+}
+
+/* --- updates: highlight when updates are pending --- */
+#custom-updates.has-updates {
+    color: @on_primary_container;
+    background: @primary_container;
+    border-color: @primary;
+    font-weight: bold;
+}
+
+#custom-updates.up-to-date {
+    color: alpha(@on_surface, 0.6);
+}
+
+/* --- vpn: swap to a stronger accent when actively connected --- */
+#custom-vpn.connected {
+    color: @on_secondary_container;
+    background: @secondary_container;
+    border-color: @secondary;
+    font-weight: bold;
 }

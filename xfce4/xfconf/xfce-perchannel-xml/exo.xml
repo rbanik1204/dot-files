@@ -1,0 +1,9 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<channel name="exo" version="1.0">
+  <property name="preferred-applications" type="empty">
+    <property name="TerminalEmulator" type="string" value="kitty">
+      <property name="Command" type="string" value="kitty"/>
+    </property>
+  </property>
+</channel>

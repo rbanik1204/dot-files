@@ -1,0 +1,17 @@
+[Unit]
+Description=Waybar system monitor background collector
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.config/waybar/scripts/system-monitor/monitor.py
+Restart=on-failure
+RestartSec=2
+# Keep it quiet and low priority — this is a background sampler, not
+# something that should compete with your foreground apps.
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=6
+
+[Install]
+WantedBy=graphical-session.target

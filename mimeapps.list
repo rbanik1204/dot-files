@@ -1,0 +1,16 @@
+[Default Applications]
+x-scheme-handler/terminal=kitty.desktop
+x-scheme-handler/pttp=CiscoPacketTracerPtsa-9.0.0.desktop
+application/x-pka=CiscoPacketTracer-9.0.0.desktop
+application/x-pkt=CiscoPacketTracer-9.0.0.desktop
+application/x-pkz=CiscoPacketTracer-9.0.0.desktop
+application/x-pksz=CiscoPacketTracer-9.0.0.desktop
+application/zip=com.google.Chrome.desktop
+application/x-zerosize=code.desktop
+x-scheme-handler/antigravity=antigravity.desktop
+
+[Added Associations]
+text/x-python=vim.desktop;codium.desktop;code.desktop;
+application/zip=com.google.Chrome.desktop;
+application/x-zerosize=code.desktop;
+text/x-qml=codium.desktop;

@@ -1,0 +1,22 @@
+:root {
+  --cc-bg: rgba(106, 59, 0, 1);
+  --noti-border-color: rgba(145, 145, 145, 0.15);
+
+  --noti-bg: 106, 59, 0;
+  --noti-bg-alpha: 1.0;
+
+  --noti-bg-darker: rgb(106, 59, 0);
+  --noti-bg-hover: rgb(89, 66, 45);
+  --noti-bg-focus: rgba(89, 66, 45, 0.6);
+
+  --noti-close-bg: rgb(89, 66, 45);
+  --noti-close-bg-hover: rgb(66, 75, 36);
+
+  --text-color: rgb(255, 220, 191);
+  --text-color-disabled: rgb(198, 198, 198);
+
+  --bg-selected: rgb(255, 184, 115);
+
+  --border-color: rgba(145, 145, 145, 0.14);
+  --notification-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+}

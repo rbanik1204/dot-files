@@ -59,12 +59,13 @@ tooltip label {
 
 #clock,
 #clock.simpleclock {
-    background-color: @surface_container;
-    border: 1px solid @outline_variant;
+    padding: 0 10px;
+    background-color: @primary_container;   /* was @surface_container */
+    border: 1px solid @primary;              /* was @outline_variant */
     border-radius: 10px;
     margin-top: 5px;
     margin-left: 5px;
-    color: @primary;
+    color: @on_primary_container;            /* was @primary */
 }
 
 #mpris {
@@ -86,30 +87,35 @@ tooltip label {
 }
 
 #window {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0 8px;
     margin-top: 5px;
-    color: @on_surface_variant;
+    margin-left: 5px;
+    background-color: transparent;
+    border: none;
+    color: @on_surface;
     font-style: italic;
+    font-size: 12px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
 }
 
 window#waybar.empty #window {
     background-color: transparent;
+    border: none;
 }
 
 #custom-notification {
     padding: 0 10px;
-    background-color: @surface_container;
-    border: 1px solid @outline_variant;
+    background-color: @tertiary_container;   /* was @surface_container */
+    border: 1px solid @tertiary;
     margin: 0 10px;
-    color: @tertiary;
+    color: @on_tertiary_container;           /* was @tertiary */
     border-radius: 10px;
     margin-top: 5px;
 }
 
 #tray {
     padding: 0 10px;
-    background-color: @surface_container;
+    background-color: @surface_container_high;
     border: 1px solid @outline_variant;
     margin: 0 10px;            /* matches all other modules */
     margin-top: 5px;           /* matches all other modules */
@@ -140,139 +146,144 @@ window#waybar.empty #window {
 
 #memory {
     padding: 0 10px;
-    background-color: @surface_container;
-    border: 1px solid @outline_variant;
+    background-color: @secondary_container;
+    border: 1px solid @secondary;
     margin: 0 10px;
-    color: @secondary;
+    color: @on_secondary_container;
     border-radius: 10px;
     margin-top: 5px;
 }
 
 #cpu {
     padding: 0 10px;
-    background-color: @surface_container;
-    border: 1px solid @outline_variant;
+    background-color: @tertiary_container;
+    border: 1px solid @tertiary;
     margin: 0 10px;
-    color: @tertiary;
+    color: @on_tertiary_container;
     border-radius: 10px;
     margin-top: 5px;
 }
 
 #cpu.warning {
-    color: @error;
+    color: @on_error_container;
+    background-color: @error_container;
+    border-color: @error;
 }
 
 #cpu.critical {
     color: @on_error_container;
     background-color: @error_container;
-    border-color: @error_container;
+    border-color: @error;
+    font-weight: bold;
 }
 
 #pulseaudio {
     padding: 0 10px;
-    background-color: @surface_container;
-    border: 1px solid @outline_variant;
+    background-color: @secondary_container;
+    border: 1px solid @secondary;
     margin: 0 10px;
-    color: @on_surface;
+    color: @on_secondary_container;
     border-radius: 10px;
     margin-top: 5px;
 }
 
 #pulseaudio.muted {
-    color: @outline;
+    color: alpha(@on_surface, 0.4);
+    background-color: @surface_container;
+    border-color: @outline_variant;
 }
 
 #custom-network {
     padding: 0 10px;
-    background-color: @surface_container;
-    border: 1px solid @outline_variant;
+    background-color: @primary_container;
+    border: 1px solid @primary;
     margin: 0 10px;
-    color: @on_surface;
+    color: @on_primary_container;
     border-radius: 10px;
     margin-top: 5px;
 }
 
 #custom-network.wifi {
-    color: @primary;
+    color: @on_primary_container;
 }
 
 #custom-network.ethernet {
-    color: @on_surface;
+    color: @on_primary_container;
 }
 
 #custom-network.vpn {
-    color: @tertiary;
+    background-color: @tertiary_container;
+    border-color: @tertiary;
+    color: @on_tertiary_container;
 }
 
 #custom-network.disconnected {
-    color: @error;
+    background-color: @error_container;
+    border-color: @error;
+    color: @on_error_container;
 }
 
 /* ── Built-in network module (Wi-Fi signal from config.jsonc "network" block) ── */
-#network {
-    padding: 0 10px;
-    background-color: @surface_container;
-    border: 1px solid @outline_variant;
-    margin: 0 10px;
-    color: @primary;
-    border-radius: 10px;
-    margin-top: 5px;
-}
+/*Removed for now*/
 
 
 /* ── Bluetooth ────────────────────────────────────────────────────────────── */
 #bluetooth {
     padding: 0 10px;
-    background-color: @surface_container;
-    border: 1px solid @outline_variant;
+    background-color: @secondary_container;
+    border: 1px solid @secondary;
     margin: 0 10px;
-    color: @secondary;
+    color: @on_secondary_container;
     border-radius: 10px;
     margin-top: 5px;
 }
 
 #bluetooth.connected {
-    color: @primary;
+    background-color: @primary_container;
+    border-color: @primary;
+    color: @on_primary_container;
+    font-weight: bold;
 }
 
 #bluetooth.disabled,
 #bluetooth.off {
-    /* Hidden via format: "" in config — these rules are a safety net */
-    min-width: 0;
-    padding: 0;
-    margin: 0;
-    border: none;
-    background: transparent;
+    color: alpha(@on_surface, 0.4);
+    background-color: @surface_container;
+    border-color: @outline_variant;
 }
 
 /* ── Battery ─────────────────────────────────────────────────────────────── */
 #battery {
     padding: 0 10px;
-    background-color: @surface_container;
-    border: 1px solid @outline_variant;
+    background-color: @primary_container;
+    border: 1px solid @primary;
     margin: 0 10px;
-    color: @on_surface;
+    color: @on_primary_container;
     border-radius: 10px;
     margin-top: 5px;
 }
 
 #battery.good {
-    color: @primary;
+    color: @on_primary_container;
 }
 
 #battery.charging,
 #battery.plugged {
-    color: @secondary;
+    background-color: @secondary_container;
+    border-color: @secondary;
+    color: @on_secondary_container;
 }
 
 #battery.warning {
-    color: @error;
+    background-color: @tertiary_container;
+    border-color: @tertiary;
+    color: @on_tertiary_container;
 }
 
 #battery.critical {
     color: @on_error_container;
     background-color: @error_container;
-    border-color: @error_container;
+    border-color: @error;
     /* Pulse animation to draw attention on critically low battery */
     animation: battery-critical-pulse 1s ease-in-out infinite;
 }
@@ -281,4 +292,27 @@ window#waybar.empty #window {
     0%   { opacity: 1; }
     50%  { opacity: 0.5; }
     100% { opacity: 1; }
+}
+/* ── Idle Inhibitor ──────────────────────────────────────────────────────── */
+#idle_inhibitor {
+    padding: 0 10px;
+    background-color: @surface_container;
+    border: 1px solid @outline_variant;
+    margin: 0 10px;
+    color: alpha(@on_surface, 0.5);
+    border-radius: 10px;
+    margin-top: 5px;
+    transition: all 0.2s ease;
+}
+
+#idle_inhibitor.activated {
+    background-color: @tertiary_container;
+    border-color: @tertiary;
+    color: @on_tertiary_container;
+    font-weight: bold;
+}
+
+#idle_inhibitor:hover {
+    background-color: @surface_container_highest;
+    border-color: @primary;
 }

@@ -1,12 +1,18 @@
+[Presets]
+lastLoadedOutputPreset=Ambience
+
 [StreamInputs]
-inputDevice=bluez_input.41:42:2F:0A:FB:F6
+inputDevice=alsa_input.pci-0000_06_00.6.HiFi__Mic1__source
+visiblePage=pluginsPage
 
 [StreamOutputs]
+mostUsedPresets=Bass Boost,Ambience,Surround,Flat,Vocal Clarity
 outputDevice=bluez_output.41_42_2F_0A_FB_F6.1
-plugins=autogain#0,bass_loudness#0
+plugins=reverb#0,stereo_tools#0,bass_loudness#0
+usedPresets=Vocal Clarity:1,Surround:4,Bass Boost:7,Ambience:5,Flat:2
 visiblePage=pluginsPage
-visiblePlugin=autogain#0
+visiblePlugin=bass_loudness#0
 
 [Window]
-height=990
-width=946
+height=978
+width=939

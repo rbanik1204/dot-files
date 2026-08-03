@@ -1,0 +1,235 @@
+@import url("colors.conf");
+
+/* ── Window ─────────────────────────────────────────────── */
+window {
+    background-color: alpha(@window_bg_color, 0.12);
+}
+
+decoration {
+    box-shadow: none;
+    border: none;
+}
+
+.titlebar, titlebar {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+/* ── Header bar ──────────────────────────────────────────── */
+headerbar {
+    background-color: alpha(@headerbar_bg_color, 0.18);
+    border-bottom: 1px solid alpha(@headerbar_border_color, 0.25);
+    box-shadow: none;
+    color: @headerbar_fg_color;
+}
+
+headerbar .title,
+headerbar label {
+    color: @headerbar_fg_color;
+    text-shadow: none;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────── */
+.sidebar {
+    background-color: alpha(@sidebar_bg_color, 0.1);
+    border: none;
+    border-right: 1px solid alpha(@sidebar_border_color, 0.2);
+    color: @sidebar_fg_color;
+}
+
+/* Category section headings */
+.sidebar-section-header label,
+placessidebar > revealer > box > label {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: alpha(@sidebar_fg_color, 0.35);
+    padding: 4px 6px 2px;
+}
+
+/* Sidebar rows */
+.sidebar row {
+    border-radius: 6px;
+    margin: 1px 4px;
+    padding: 2px 0;
+    color: alpha(@sidebar_fg_color, 0.7);
+}
+
+.sidebar row:hover {
+    background-color: alpha(@sidebar_fg_color, 0.07);
+}
+
+.sidebar row:selected {
+    background-color: alpha(@accent_color, 0.22);
+    color: @accent_color;
+}
+
+.sidebar row:selected label {
+    color: @accent_color;
+    text-shadow: none;
+}
+
+/* ── Main file view ──────────────────────────────────────── */
+.view {
+    background-color: transparent;
+    color: @view_fg_color;
+}
+
+.view image {
+    color: alpha(@accent_color, 0.88);
+}
+
+.view label,
+.label, label {
+    color: alpha(@window_fg_color, 0.88);
+    text-shadow: 0px 1px 4px alpha(black, 0.8);
+}
+
+.view:selected {
+    background-color: alpha(@accent_color, 0.25);
+    color: @window_fg_color;
+    border-radius: 6px;
+}
+
+.view:hover {
+    background-color: alpha(@accent_color, 0.1);
+    border-radius: 6px;
+}
+
+/* ── Toolbar / path bar ──────────────────────────────────── */
+toolbar {
+    background-color: transparent;
+    border-bottom: none;
+    box-shadow: none;
+}
+
+entry {
+    background-color: alpha(@view_bg_color, 0.5);
+    border: 1px solid alpha(@headerbar_border_color, 0.4);
+    border-radius: 6px;
+    color: @window_fg_color;
+    caret-color: @accent_color;
+}
+
+entry:focus {
+    border-color: alpha(@accent_color, 0.7);
+    background-color: alpha(@view_bg_color, 0.65);
+}
+
+/* ── Scrollbars ──────────────────────────────────────────── */
+scrollbar {
+    background-color: transparent;
+}
+
+scrollbar slider {
+    background-color: alpha(@scrollbar_outline_color, 0.2);
+    border-radius: 4px;
+    min-width: 4px;
+    min-height: 4px;
+    margin: 2px;
+}
+
+scrollbar slider:hover {
+    background-color: alpha(@scrollbar_outline_color, 0.35);
+}
+
+scrollbar slider:active {
+    background-color: alpha(@accent_color, 0.55);
+}
+
+/* ── Context / right-click menus ─────────────────────────── */
+menu {
+    background-color: alpha(@popover_bg_color, 0.82);
+    border: 1px solid alpha(@headerbar_border_color, 0.3);
+    border-radius: 10px;
+    padding: 4px;
+    box-shadow: none;
+    color: @popover_fg_color;
+}
+
+menuitem {
+    border-radius: 6px;
+    color: @popover_fg_color;
+    padding: 5px 10px;
+}
+
+menuitem:hover {
+    background-color: alpha(@accent_color, 0.22);
+    color: @accent_color;
+}
+
+menuitem label {
+    color: inherit;
+    text-shadow: none;
+}
+
+separator {
+    background-color: alpha(@sidebar_border_color, 0.25);
+    margin: 4px 8px;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+button {
+    background-color: alpha(@headerbar_fg_color, 0.06);
+    border: 1px solid alpha(@headerbar_border_color, 0.35);
+    border-radius: 6px;
+    color: alpha(@headerbar_fg_color, 0.78);
+    box-shadow: none;
+}
+
+button:hover {
+    background-color: alpha(@headerbar_fg_color, 0.12);
+    color: @headerbar_fg_color;
+}
+
+button:active {
+    background-color: alpha(@accent_color, 0.28);
+    color: @accent_fg_color;
+}
+
+/* ── Status bar ──────────────────────────────────────────── */
+statusbar {
+    background-color: alpha(@window_bg_color, 0.1);
+    border-top: 1px solid alpha(@sidebar_border_color, 0.18);
+    color: alpha(@window_fg_color, 0.38);
+    font-size: 11px;
+}
+
+/* ── Notebook / tabs ─────────────────────────────────────── */
+notebook > header {
+    background-color: alpha(@headerbar_bg_color, 0.12);
+    border-bottom: 1px solid alpha(@headerbar_border_color, 0.2);
+}
+
+notebook > header > tabs > tab {
+    color: alpha(@headerbar_fg_color, 0.5);
+    border-radius: 6px 6px 0 0;
+    padding: 4px 12px;
+}
+
+notebook > header > tabs > tab:checked {
+    color: @accent_color;
+    background-color: alpha(@accent_color, 0.15);
+}
+
+/* ── Popover (e.g. column chooser) ──────────────────────── */
+popover {
+    background-color: alpha(@popover_bg_color, 0.85);
+    border: 1px solid alpha(@headerbar_border_color, 0.3);
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+popover label {
+    color: @popover_fg_color;
+}
+
+/* ── Dialog windows ──────────────────────────────────────── */
+dialog {
+    background-color: alpha(@dialog_bg_color, 0.75);
+    border-radius: 12px;
+    color: @dialog_fg_color;
+}
+
+dialog headerbar {
+    border-radius: 12px 12px 0 0;
+}

@@ -1,0 +1,22 @@
+:root {
+  --cc-bg: {{colors.primary_container.default.rgba | set_alpha: 1.0}};
+  --noti-border-color: {{colors.outline.default.rgba | set_alpha: 0.15}};
+
+  --noti-bg: {{colors.primary_container.default.red}}, {{colors.primary_container.default.green}}, {{colors.primary_container.default.blue}};
+  --noti-bg-alpha: 1.0;
+
+  --noti-bg-darker: {{colors.primary_container.default.rgb}};
+  --noti-bg-hover: {{colors.secondary_container.default.rgb}};
+  --noti-bg-focus: {{colors.secondary_container.default.rgba | set_alpha: 0.6}};
+
+  --noti-close-bg: {{colors.secondary_container.default.rgb}};
+  --noti-close-bg-hover: {{colors.tertiary_container.default.rgb}};
+
+  --text-color: {{colors.on_primary_container.default.rgb}};
+  --text-color-disabled: {{colors.on_surface_variant.default.rgb}};
+
+  --bg-selected: {{colors.primary.default.rgb}};
+
+  --border-color: {{colors.outline.default.rgba | set_alpha: 0.14}};
+  --notification-shadow: 0 8px 32px {{colors.shadow.default.rgba | set_alpha: 0.45}};
+}

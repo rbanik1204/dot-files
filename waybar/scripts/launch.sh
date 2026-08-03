@@ -5,4 +5,7 @@ killall -9 waybar
 #waybar ~/.config/waybar/themes/ultra-minimal/config.jsonc -s ~/.config/waybar/themes/ultra-minimal/style.css &
 curl -sf 'https://wttr.in/?format=%c+%t' | cat -v
 waybar &
-waybar -c ~/.config/waybar/config-bottom.jsonc -s ~/.config/waybar/style-bottom.css &g
+waybar -c ~/.config/waybar/config-bottom.jsonc -s ~/.config/waybar/style-bottom.css &
+systemctl --user restart waybar-monitor.service
+sleep 3
+cat /tmp/waybar-monitor.json | python3 -c "import json,sys; print(json.load(sys.stdin)['updates'])"  
